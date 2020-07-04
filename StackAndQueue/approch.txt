@@ -1,0 +1,21 @@
+Stack<Integer> st= new Stack<>();
+      int area=0;
+      for(int i=0;i<heights.length;i++){
+        if(st.size()==0)st.push(heights[i]);
+        else if(st.peek()<heights[i]){
+        flag=true;
+        st.push(heights[i]);
+        else if(st.peek()<heights[i]){
+         int min=st.peek();
+         int count=0;
+         while(st.size()!=0){
+            int curr=st.pop();
+            if(min>curr){
+            min=curr;}
+            count++;
+         }
+         int new_area=min*count;
+         area=Math.max(new_area,area);
+        }
+      }
+      return area;
